@@ -16,7 +16,7 @@ const Navbar = ({
   useEffect(() => {
     setSelectedUser([])
   }, []
-  ) //Placeholder for the useEffect
+  ) //Placeholder for the useEffect 
 
   return (
   <header> Welcome to Stranger's Things 
