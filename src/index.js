@@ -20,6 +20,7 @@ const root = ReactDOM.createRoot(container)
 
 const App = () => {
     const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
+    
     return <div id="App">
       <Navbar
       currentUser={currentUser} />
