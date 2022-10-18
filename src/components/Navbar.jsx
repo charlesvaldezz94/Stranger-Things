@@ -6,6 +6,7 @@ import {
   storeCurrentUser,
   clearCurrentUser
 } from '../auth';
+import { getUser } from "../API";
 
 const Navbar = ({
   currentUser,
@@ -14,7 +15,8 @@ const Navbar = ({
   const [selectedUser, setSelectedUser] = useState();
 
   useEffect(() => {
-    setSelectedUser([])
+    const user = getUser()
+    setSelectedUser(user)
   }, []
   ) //Placeholder for the useEffect 
 
