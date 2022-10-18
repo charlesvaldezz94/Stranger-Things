@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client"
 import {Navbar} from "./components"
+import {Post} from './components'
 
 import {
     BrowserRouter as Router,
@@ -25,6 +26,7 @@ const App = () => {
       <Navbar
       currentUser={currentUser} />
       <h1> Today's hot items </h1>
+      <Post />
     </div>;
   };
 

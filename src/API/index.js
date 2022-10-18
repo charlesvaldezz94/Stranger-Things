@@ -3,12 +3,26 @@
     export async function getUser(){
       try {
         const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT')
-        console.log('data', response)
+        // console.log('data', response)
         const result = await response.json()
     } catch (err) {
         throw err
     }  
     }
+
+
+    
+        const BASE_URL = 'https://strangers-things.herokuapp.com/api'
+        const COHORT = '2209-FTB-ET-WEB-FT'
+        export const getPost = async () => {
+                const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
+                const result = await response.json()
+                const posts = result.data.posts
+                console.log('posts', posts)
+                return posts
+        }
+       
+    
 
 // try {
 //     const response = await fetch(
