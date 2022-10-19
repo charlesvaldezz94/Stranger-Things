@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client"
-import {Navbar} from "./components"
-import {Post} from './components'
+import {Navbar, Allposts} from "./components"
 
 import {
     BrowserRouter as Router,
@@ -22,11 +21,12 @@ const root = ReactDOM.createRoot(container)
 const App = () => {
     const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
     
-    return <div id="App">
+    return <div id="Main">
       <Navbar
       currentUser={currentUser} />
       <h1> Today's hot items </h1>
-      <Post />
+      {/* <Post /> */}
+      <Allposts />
     </div>;
   };
 

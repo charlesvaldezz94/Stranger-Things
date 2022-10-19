@@ -12,17 +12,18 @@
 
     const BASE_URL = 'https://strangers-things.herokuapp.com/api'
     const COHORT = '2209-FTB-ET-WEB-FT'
-    const getPost = async () => {
+    export async function getPost() {
+        try{
             const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
             const result = await response.json()
             const posts = result.data.posts
-            return posts
+            return posts}
+            catch (err) {
+                console.error(err);
+            }
+
     }
     const test = getPost()
-    console.log(test)
-
-
-
 
 
 // try {
