@@ -25,7 +25,6 @@ const App = () => {
       <Navbar
       currentUser={currentUser} />
       <h1> Today's hot items </h1>
-      {/* <Post /> */}
       <Allposts />
     </div>;
   };

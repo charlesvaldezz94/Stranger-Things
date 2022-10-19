@@ -1,0 +1,6 @@
+.allPosts {
+    display: flex;
+    width: fit-content;
+    border: solid 1px black;
+    width: 500px;
+}
