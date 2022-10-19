@@ -18,14 +18,13 @@ const container = document.getElementById('app')
 const root = ReactDOM.createRoot(container)
 
 
+
 const App = () => {
     const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
     
     return <div id="Main">
-      
       <Navbar
       currentUser={currentUser} />
-      <Login />
       <h1> Today's hot items </h1>
       <Allposts />
     </div>;

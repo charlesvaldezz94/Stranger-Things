@@ -11,7 +11,6 @@ const Allposts = () => {
       setAllPosts(getPosts);
     }
     fetchPosts();
-    console.log(allPosts, "post.js");
   }, []);
 
   return <>
