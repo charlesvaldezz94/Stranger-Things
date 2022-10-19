@@ -26,6 +26,9 @@ const Navbar = ({
   <header> Welcome to Stranger's Things 
   <div id="Navbar">
     <h2> Navbar </h2>
+    <h2>Posts</h2>
+    <h2>profile</h2>
+    <button>logout</button>
     <Login/>
   </div>
   </header>
