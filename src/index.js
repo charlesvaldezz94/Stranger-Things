@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client"
-import {Navbar, Allposts} from "./components"
+import {Navbar, Allposts, Login} from "./components"
 
 import {
     BrowserRouter as Router,
@@ -22,8 +22,10 @@ const App = () => {
     const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
     
     return <div id="Main">
+      
       <Navbar
       currentUser={currentUser} />
+      <Login />
       <h1> Today's hot items </h1>
       <Allposts />
     </div>;
