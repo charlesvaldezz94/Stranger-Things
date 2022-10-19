@@ -10,19 +10,20 @@
     }  
     }
 
+    const BASE_URL = 'https://strangers-things.herokuapp.com/api'
+    const COHORT = '2209-FTB-ET-WEB-FT'
+    const getPost = async () => {
+            const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
+            const result = await response.json()
+            const posts = result.data.posts
+            return posts
+    }
+    const test = getPost()
+    console.log(test)
 
-    
-        const BASE_URL = 'https://strangers-things.herokuapp.com/api'
-        const COHORT = '2209-FTB-ET-WEB-FT'
-        export const getPost = async () => {
-                const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
-                const result = await response.json()
-                const posts = result.data.posts
-                console.log('posts', posts)
-                return posts
-        }
-       
-    
+
+
+
 
 // try {
 //     const response = await fetch(
