@@ -20,15 +20,24 @@ const root = ReactDOM.createRoot(container)
 
 
 const App = () => {
-    const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
-    
-    return <div id="Main">
-      <Navbar
-      currentUser={currentUser} />
-      <h1> Today's hot items </h1>
-      <Allposts />
-    </div>;
-  };
+  const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
+  
+  return ( 
+    <Router> 
+  <div id="Main">
+    <Navbar
+    currentUser={currentUser} />
+    <h1> Today's hot items </h1>
+    <div id="Content">
+    <Switch>
+      <Route path="/"> <Allposts /> </Route>
+    </Switch>
+    </div> 
+  </div>
+  </Router>
+  );
+};
+
 
 
 root.render(<App />)
