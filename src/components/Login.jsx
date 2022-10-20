@@ -7,14 +7,14 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(login);
-    // console.log(password);
+    console.log(login);
+    console.log(password);
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label for="username"></label>
+        <label htmlFor="username"></label>
         <input
           defaultValue={login}
           onChange={(e) => setLogin(e.target.value)}
@@ -23,7 +23,7 @@ const Login = () => {
           id="username"
           name="username"
         />
-        <label for="password"></label>
+        <label htmlFor="password"></label>
         <input
           defaultValue={password}
           onChange={(e) => setPassword(e.target.value)}

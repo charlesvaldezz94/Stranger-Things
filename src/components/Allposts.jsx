@@ -12,11 +12,10 @@ const Allposts = () => {
     }
     fetchPosts();
   }, []);
-
-  return <>
+  return (<>
   <h1> Posts</h1>
   {
-    allPosts.map(post => <div className="allPosts" key={post.id}>
+    allPosts.map(post => <div className="allPosts" key={post._id}>
       <h3> {post.title} </h3>
       <h4> {post.username} </h4> 
       <div> {post.description} </div>
@@ -25,7 +24,7 @@ const Allposts = () => {
     </div>
   )
   }
-  </>
+  </>)
 }
 
 export default Allposts;
