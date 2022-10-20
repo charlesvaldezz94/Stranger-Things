@@ -1,4 +1,5 @@
 import react, {useEffect, useState} from 'react'
+import {createUser} from '../API'
 
 const Register = () => {
     return(

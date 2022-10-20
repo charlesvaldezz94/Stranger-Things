@@ -22,4 +22,21 @@
             }
 
     }
-    const test = getPost()
+    export async function createUser() {
+            fetch('https://strangers-things.herokuapp.com/api/COHORT-NAME/users/register', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    user: {
+                        username: 'nick',
+                        password: '0916'
+                    }
+                })
+            }) .then(response => response.json())
+            .then(result => {
+                console.log(result)
+            }) .catch(console.error)
+        }
+    
