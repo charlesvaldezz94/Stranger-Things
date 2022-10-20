@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { getPost } from "../API";
+import {Searchposts} from "./Searchposts"
 import './Allposts.css'
 
 const Allposts = () => {
   const [allPosts, setAllPosts] = useState([]);
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
     async function fetchPosts() {
       const getPosts = await getPost();
       setAllPosts(getPosts);
+      setSearchResults(getPosts);
     }
     fetchPosts();
   }, []);
+
   return (<>
   <h1> Posts</h1>
+  <Searchposts allPosts={allPosts} setSearchResults={setSearchResults}/>
   {
-    allPosts.map(post => <div className="allPosts" key={post._id}>
+    searchResults.map(post => <div className="allPosts" key={post._id}>
       <h3> {post.title} </h3>
       <h4> {post.username} </h4> 
       <div> {post.description} </div>
