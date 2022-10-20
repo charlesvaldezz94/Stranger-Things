@@ -2,6 +2,12 @@ import react, {useEffect, useState} from 'react'
 import {createUser} from '../API'
 
 const Register = () => {
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    useEffect(() => {
+        const newUser = createUser()
+        
+    })
     return(
         <div>Register Page 
         <div className='form'>
