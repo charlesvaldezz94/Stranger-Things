@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
   const [login, setLogin] = useState("");
@@ -33,7 +34,16 @@ const Login = () => {
         />
         <button type="submit"> Log In </button>
       </form>
-      <button> Don't have an account? Register here! </button>
+      <button>
+          <NavLink
+            to="/Register"
+            style={({ isActive }) => ({
+              color: isActive ? "greenyellow" : "black",
+            })}
+          >
+            Register
+          </NavLink>
+          </button>
     </>
   );
 };

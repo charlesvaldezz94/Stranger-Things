@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client"
-import {Navbar, Allposts, Login} from "./components"
+import {Navbar, Allposts, Login, Register, Home} from "./components"
 
 import {
     BrowserRouter as Router,
@@ -27,10 +27,12 @@ const App = () => {
   <div id="Main">
     <Navbar
     currentUser={currentUser} />
-    <h1> Today's hot items </h1>
     <div id="Content">
     <Switch>
-      <Route path="/"> <Allposts /> </Route>
+    <Route exact path="/"> <Home /> </Route>
+      <Route exact path="/Allposts"> <Allposts /> </Route>
+      <Route exact path="/Register"> <Register /> </Route>
+      <Route exact path="/Login"> <Login /> </Route> 
     </Switch>
     </div> 
   </div>

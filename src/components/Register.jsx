@@ -2,6 +2,7 @@ import react, {useEffect, useState} from 'react'
 
 const Register = () => {
     return(
+        <div>Register Page</div> 
         // <div className='form'>
         //     <div className='form-body'>
         //         <div className='username'>
