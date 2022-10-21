@@ -1,34 +1,20 @@
 import React, {useState} from 'react'
 import {createUser} from '../API'
 import { NavLink } from 'react-router-dom';
-
+ 
 const Register = () => {
     const [newLogin, setNewLogin] = useState("");
     const [newPassword, setNewPassword] = useState("");
-
-    // const handleSubmit = async (e) => {
-    //   e.preventDefault();
-    //   try {
-    //     const token = await getUser(login, password)
-    //     console.log(token)
-    //   } catch (error) {
-    //     console.log(error)
-    //   }
-    // };
-
+ 
     async function handleSubmit(e){
         e.preventDefault()
-        try {
-        const newUser = await createUser(username, password)
+        console.log(e.target, 'handleSubmit')
+        const newUser = await createUser(newLogin, newPassword)
         const token = newUser.token
         localStorage.removeItem('token')
         localStorage.setItem('token', token)
-        console.log(token, 'token')
-      } catch (error) {
-        console.log(error, 'error')
-      }
-        
-
+       
+       
             }
      
     return(
@@ -37,7 +23,10 @@ const Register = () => {
         <label htmlFor="newUsername"></label>
         <input
           defaultValue={newLogin}
-          onChange={(e) => setNewLogin(e.target.value)}
+          onChange={(e) => { console.log(e.target)
+            setNewLogin(e.target.value)}
+          }
+             
           type="text"
           placeholder="Create a Username here."
           id="username"

@@ -1,8 +1,20 @@
 const BASE_URL = 'https://strangers-things.herokuapp.com/api'
 const COHORT = '2209-FTB-ET-WEB-FT'
-
-
-    export async function getUser(username, password){
+ 
+export async function getUser(token){
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    }
+    const response = await fetch(`${BASE_URL}/${COHORT}/users/me`, options)
+    const result = await response.json()
+   
+    return result
+}
+    export async function userLogin(username, password){
         const options = {
             method: 'POST',
             headers: {
@@ -18,8 +30,8 @@ const COHORT = '2209-FTB-ET-WEB-FT'
         const result = await response.json()
         return result.data
     }
-
-    
+ 
+   
     export async function getPost() {
         try{
             const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
@@ -29,7 +41,7 @@ const COHORT = '2209-FTB-ET-WEB-FT'
             catch (err) {
                 console.error(err);
             }
-
+ 
     }
     export async function createUser(username, password) {
             const options = {

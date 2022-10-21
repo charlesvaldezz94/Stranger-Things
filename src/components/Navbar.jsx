@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-
+ 
 import Login from "./Login";
-
+ 
 import { storeCurrentUser, clearCurrentUser } from "../auth";
 import { getUser } from "../API";
-
+ 
 const Navbar = ({ currentUser, setCurrentUser }) => {
   const [selectedUser, setSelectedUser] = useState();
-
+ 
   useEffect(() => {
-    const user = getUser();
-    setSelectedUser(user);
+    async function fetchUser(){
+    const user = await getUser(localStorage.token);
+    setSelectedUser(user);}
+    fetchUser()
   }, []); //Placeholder for the useEffect
-
+ 
   return (
     <header>
       <h1>Welcome to Stranger's Things </h1>
@@ -66,5 +68,5 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
     </header>
   );
 };
-
+ 
 export default Navbar;

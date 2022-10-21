@@ -1,21 +1,17 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import {getUser} from '../API';
-
+import {userLogin} from "../API"
+ 
 const Login = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = async (e) => {
+ 
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const token = await getUser(login, password)
-      console.log(token)
-    } catch (error) {
-      console.log(error)
-    }
+    console.log(login);
+    console.log(password);
   };
-
+ 
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -52,5 +48,5 @@ const Login = () => {
     </>
   );
 };
-
+ 
 export default Login;
