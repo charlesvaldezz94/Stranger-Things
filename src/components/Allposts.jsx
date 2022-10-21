@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getPost } from "../API";
 import {Searchposts} from "./Searchposts"
+import Createpost from "./Createpost"
 import './Allposts.css'
 
 const Allposts = () => {
@@ -17,7 +18,14 @@ const Allposts = () => {
   }, []);
 
   return (<>
-  <h1> Posts</h1>
+  <h1> Posts</h1>  
+  <div id="Createpost">  
+  <Createpost 
+  allPosts={allPosts}
+  setAllPosts = {setAllPosts}
+   />
+  </div> 
+<div id="Searchposts">
   <Searchposts allPosts={allPosts} setSearchResults={setSearchResults}/>
   {
     searchResults.map(post => <div className="allPosts" key={post._id}>
@@ -29,6 +37,8 @@ const Allposts = () => {
     </div>
   )
   }
+  </div>
+
   </>)
 }
 

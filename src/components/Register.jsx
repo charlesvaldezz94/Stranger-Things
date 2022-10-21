@@ -43,16 +43,14 @@ const Register = () => {
         />
         <button type="submit"> Create Account </button>
       </form>
-      <button>
           <NavLink
             to="/Login"
             style={({ isActive }) => ({
               color: isActive ? "greenyellow" : "black",
             })}
           >
-            Log in
+            Already have an account? Log in
           </NavLink>
-          </button>
     </>
     )
 }

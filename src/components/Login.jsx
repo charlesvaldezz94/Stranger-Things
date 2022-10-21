@@ -10,6 +10,8 @@ const Login = () => {
     e.preventDefault();
     console.log(login);
     console.log(password);
+    setLogin('');
+    setPassword('');
   };
  
   return (
@@ -35,16 +37,14 @@ const Login = () => {
         />
         <button type="submit"> Log In </button>
       </form>
-      <button>
           <NavLink
             to="/Register"
             style={({ isActive }) => ({
               color: isActive ? "greenyellow" : "black",
             })}
           >
-            Register
+            Don't have an account? Register here.
           </NavLink>
-          </button>
     </>
   );
 };
