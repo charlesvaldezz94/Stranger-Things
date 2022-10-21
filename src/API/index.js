@@ -1,16 +1,25 @@
-// const BASE = 'https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT'
+const BASE_URL = 'https://strangers-things.herokuapp.com/api'
+const COHORT = '2209-FTB-ET-WEB-FT'
+
 
     export async function getUser(){
-      try {
-        const response = await fetch('https://strangers-things.herokuapp.com/api/2209-FTB-ET-WEB-FT')
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }, body: JSON.stringify({
+                user: {
+                    username,
+                    password
+                }
+            })
+        }
+        const response = await fetch(`${BASE_URL}/${COHORT}/users/login`, options)
         const result = await response.json()
-    } catch (err) {
-        throw err
-    }  
+        return result.data
     }
 
-    const BASE_URL = 'https://strangers-things.herokuapp.com/api'
-    const COHORT = '2209-FTB-ET-WEB-FT'
+    
     export async function getPost() {
         try{
             const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
@@ -22,21 +31,19 @@
             }
 
     }
-    export async function createUser() {
-            fetch('https://strangers-things.herokuapp.com/api/COHORT-NAME/users/register', {
-                method: "POST",
+    export async function createUser(username, password) {
+            const options = {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
+                }, body: JSON.stringify({
                     user: {
-                        username: 'nick',
-                        password: '0916'
+                        username,
+                        password
                     }
                 })
-            }) .then(response => response.json())
-            .then(result => {
-                console.log(result)
-            }) .catch(console.error)
-        }
-    
+            }
+            const response = await fetch(`${BASE_URL}/${COHORT}/users/register`, options)
+            const result = await response.json()
+            return result.data
+    }
