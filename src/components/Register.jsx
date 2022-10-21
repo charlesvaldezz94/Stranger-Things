@@ -6,15 +6,29 @@ const Register = () => {
     const [newLogin, setNewLogin] = useState("");
     const [newPassword, setNewPassword] = useState("");
 
+    // const handleSubmit = async (e) => {
+    //   e.preventDefault();
+    //   try {
+    //     const token = await getUser(login, password)
+    //     console.log(token)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // };
+
     async function handleSubmit(e){
         e.preventDefault()
-        
+        try {
         const newUser = await createUser(username, password)
         const token = newUser.token
         localStorage.removeItem('token')
         localStorage.setItem('token', token)
+        console.log(token, 'token')
+      } catch (error) {
+        console.log(error, 'error')
+      }
         
-        
+
             }
      
     return(

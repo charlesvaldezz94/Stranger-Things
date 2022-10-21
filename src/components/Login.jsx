@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import {getUser} from '../API';
 
 const Login = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(login);
-    console.log(password);
+    try {
+      const token = await getUser(login, password)
+      console.log(token)
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (

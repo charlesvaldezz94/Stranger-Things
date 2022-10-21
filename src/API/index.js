@@ -2,7 +2,7 @@ const BASE_URL = 'https://strangers-things.herokuapp.com/api'
 const COHORT = '2209-FTB-ET-WEB-FT'
 
 
-    export async function getUser(){
+    export async function getUser(username, password){
         const options = {
             method: 'POST',
             headers: {
