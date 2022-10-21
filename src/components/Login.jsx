@@ -12,6 +12,7 @@ const Login = () => {
     console.log(password);
     setLogin('');
     setPassword('');
+    
   };
  
   return (
