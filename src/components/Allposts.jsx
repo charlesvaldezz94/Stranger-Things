@@ -34,6 +34,8 @@ const Allposts = () => {
       <div> {post.description} </div>
       <div> {post.location} </div>
       <div> {post.price} </div>
+      <button> Edit </button>
+      <button> Delete </button>
     </div>
   )
   }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 const BASE_URL = "https://strangers-things.herokuapp.com/api";
 const COHORT = "2209-FTB-ET-WEB-FT";
 
@@ -25,17 +24,18 @@ const Createpost = (allPosts, setAllPosts) => {
             title,
             description,
             price,
-            willDeliver: false,
+            willDeliver: false
           },
         }),
       });
       const data = await response.json();
       console.log("data", data);
-      setAllPosts(data, ...allPosts);
+      setAllPosts(data, ...[allPosts]);
       setTitle("");
       setDescription("");
       setPrice("")
       setLocation("")
+
     } catch (error) {
       console.log(error);
     }
