@@ -6,14 +6,12 @@ const Login = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(login);
-    console.log(password);
-    setLogin('');
-    setPassword('');
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const currentUser = await userLogin(login, password)
+    console.log(currentUser, 'please')
     
-  };
+  }
  
   return (
     <>
