@@ -9,10 +9,11 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault()
     const currentUser = await userLogin(login, password)
-    console.log(currentUser, 'please')
-    const token = currentUser
-        localStorage.removeItem('token')
-        localStorage.setItem('token', token)
+    console.log(currentUser, 'currentUser')
+    window.localStorage.setItem("token", login)
+    if (currentUser.message === 'Thanks for logging in to our service.') {
+      return alert('you are logged in')
+    }
   }
  
   return (
