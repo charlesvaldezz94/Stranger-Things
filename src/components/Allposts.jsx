@@ -7,7 +7,7 @@ import './Allposts.css'
 const Allposts = () => {
   const [allPosts, setAllPosts] = useState([]);
   const [searchResults, setSearchResults] = useState([])
-
+console.log(allPosts)
   useEffect(() => {
     async function fetchPosts() {
       const getPosts = await getPost();
@@ -30,15 +30,16 @@ const Allposts = () => {
   {
     searchResults.map(post => <div className="allPosts" key={post._id}>
       <h3> {post.title} </h3>
-      <h4> {post.username} </h4> 
+      <h4> {post.author.username} </h4> 
       <div> {post.description} </div>
       <div> {post.location} </div>
       <div> {post.price} </div>
       <button> Edit </button>
       <button> Delete </button>
     </div>
+    
   )
-  }
+  } 
   </div>
 
   </>)

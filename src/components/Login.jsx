@@ -10,7 +10,9 @@ const Login = () => {
     e.preventDefault()
     const currentUser = await userLogin(login, password)
     console.log(currentUser, 'please')
-    
+    const token = currentUser
+        localStorage.removeItem('token')
+        localStorage.setItem('token', token)
   }
  
   return (
