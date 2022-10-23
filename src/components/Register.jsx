@@ -10,7 +10,8 @@ const Register = () => {
         e.preventDefault()
         console.log(e.target, 'handleSubmit')
         const newUser = await createUser(newLogin, newPassword)
-        const token = newUser.token
+        console.log(newUser, 'hello')
+        const token = newUser
         localStorage.removeItem('token')
         localStorage.setItem('token', token)
        
