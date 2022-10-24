@@ -7,16 +7,19 @@ const Register = () => {
     const [newPassword, setNewPassword] = useState("");
  
     async function handleSubmit(e){
-        e.preventDefault()
-        console.log(e.target, 'handleSubmit')
-        const newUser = await createUser(newLogin, newPassword)
-        console.log(newUser, 'hello')
-        const token = newUser
-        localStorage.removeItem('token')
-        localStorage.setItem('token', token)
-       
-       
-            }
+      e.preventDefault()
+      console.log(e.target, 'handleSubmit')
+      const newUser = await createUser(newLogin, newPassword)
+      console.log(newUser, 'hello')
+      const token = newUser
+      if (newUser.message === 'Thanks for signing up for our service.') {
+        return (alert('you have registered'))
+      }
+      localStorage.removeItem('token')
+      localStorage.setItem('token', token)
+     
+     
+          }
      
     return(
         <>

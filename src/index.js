@@ -5,7 +5,8 @@ import {
   Allposts,
   Login,
   Register,
-  Home
+  Home,
+  Profile
 } from "./components"
 
 import {
@@ -38,7 +39,8 @@ const App = () => {
     <Route exact path="/"> <Home /> </Route>
       <Route exact path="/Allposts"> <Allposts /> </Route>
       <Route exact path="/Register"> <Register /> </Route>
-      <Route exact path="/Login"> <Login /> </Route> 
+      <Route exact path="/Login"> <Login /> </Route>
+      <Route exact path="/Profile"> <Profile /> </Route> 
     </Switch>
     </div> 
   </div>
