@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import {userLogin} from "../API"
  
 const Login = () => {
   const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
- 
+  const history = useHistory()
+
   async function handleSubmit(e) {
     e.preventDefault()
     const currentUser = await userLogin(login, password)
     console.log(currentUser, 'currentUser')
     window.localStorage.setItem("token", login)
+    history.push('/')
     if (currentUser.message === 'Thanks for logging in to our service.') {
       return alert('you are logged in')
     }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
  
-import Login from "./Login";
+
  
 import { storeCurrentUser, clearCurrentUser } from "../auth";
 import { getUser } from "../API";
@@ -22,6 +22,7 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
       <h1>Welcome to Stranger's Things </h1>
       <div id="Navbar">
         <h2> Menu </h2>
+
          <div>
         <NavLink
             to="/"
@@ -32,6 +33,7 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
             Home
           </NavLink>
         </div>
+
         <div>
           <NavLink
             to="/Allposts"
@@ -42,6 +44,18 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
             Posts
           </NavLink>
         </div>
+
+        <div>
+          <NavLink
+            to="/Profile"
+            style={({ isActive }) => ({
+              color: isActive ? "greenyellow" : "white",
+            })}
+          >
+            Profile
+          </NavLink>
+        </div>
+
         <div>
           <NavLink
             to="/Login"
@@ -51,6 +65,9 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
           >
             Login
           </NavLink>
+        </div>
+
+        <div> 
           <NavLink
             to="/Register"
             style={({ isActive }) => ({
@@ -59,11 +76,12 @@ const Navbar = ({ currentUser, setCurrentUser }) => {
           >
             Register
           </NavLink>
-        </div>
+        </div> 
+
         <div>
-        <h2>profile</h2>
         <button>logout</button>
         </div>
+
       </div>
     </header>
   );

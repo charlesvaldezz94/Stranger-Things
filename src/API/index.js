@@ -44,6 +44,19 @@ export async function getPost() {
     }
 
 }
+export async function deletePost() {
+    const options = {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+        }
+    
+    const response = await fetch(`${BASE_URL}/${COHORT}/posts/POST_ID`, options)
+    const result = await response.json()
+    return result.data
+}
 export async function createUser(username, password) {
     const options = {
         method: 'POST',
@@ -87,3 +100,5 @@ export async function updatePost() {
         console.log(error)
     }
 }
+
+

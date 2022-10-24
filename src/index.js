@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import ReactDOM from "react-dom/client"
-import {Navbar, Allposts, Login, Register, Home} from "./components"
+import {
+  Navbar,
+  Allposts,
+  Login,
+  Register,
+  Home
+} from "./components"
 
 import {
     BrowserRouter as Router,
     Route,
-    Switch,
-    Redirect
+    Switch
   } from 'react-router-dom';
 
 import {
@@ -22,6 +27,7 @@ const root = ReactDOM.createRoot(container)
 const App = () => {
   const [currentUser, setCurrentUser] = useState(getCurrentUser()); 
   
+
   return ( 
     <Router> 
   <div id="Main">
