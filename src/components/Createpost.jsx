@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 const BASE_URL = "https://strangers-things.herokuapp.com/api";
 const COHORT = "2209-FTB-ET-WEB-FT";
 
-const Createpost = (allPosts, setAllPosts) => {
+const Createpost = (props) => {
+  const allPosts = props.allPosts;
+  const setAllPosts = props.setAllPosts;
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -24,7 +26,7 @@ const Createpost = (allPosts, setAllPosts) => {
             title,
             description,
             price,
-            willDeliver: false
+            willDeliver: false,
           },
         }),
       });
@@ -33,9 +35,8 @@ const Createpost = (allPosts, setAllPosts) => {
       setAllPosts(data, ...[allPosts]);
       setTitle("");
       setDescription("");
-      setPrice("")
-      setLocation("")
-
+      setPrice("");
+      setLocation("");
     } catch (error) {
       console.log(error);
     }
