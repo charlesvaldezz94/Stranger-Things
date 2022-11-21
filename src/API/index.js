@@ -1,104 +1,103 @@
-const BASE_URL = 'https://strangers-things.herokuapp.com/api'
-const COHORT = '2209-FTB-ET-WEB-FT'
+const BASE_URL = "https://strangers-things.herokuapp.com/api";
+const COHORT = "2209-FTB-ET-WEB-FT";
 
 export async function getUser(token) {
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    }
-    const response = await fetch(`${BASE_URL}/${COHORT}/users/me`, options)
-    const result = await response.json()
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const response = await fetch(`${BASE_URL}/${COHORT}/users/me`, options);
+  const result = await response.json();
 
-    return result
+  return result;
 }
 export async function userLogin(username, password) {
+  try {
     const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }, body: JSON.stringify({
-            user: {
-                username,
-                password
-            }
-        })
-    }
-    const response = await fetch(`${BASE_URL}/${COHORT}/users/login`, options)
-    const result = await response.json()
-    return result.data
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username,
+          password,
+        },
+      }),
+    };
+    const response = await fetch(`${BASE_URL}/${COHORT}/users/login`, options);
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 }
-
 
 export async function getPost() {
-    try {
-        const response = await fetch(`${BASE_URL}/${COHORT}/posts`)
-        const result = await response.json()
-        const posts = result.data.posts
-        return posts
-    }
-    catch (err) {
-        console.error(err);
-    }
-
+  try {
+    const response = await fetch(`${BASE_URL}/${COHORT}/posts`);
+    const result = await response.json();
+    const posts = result.data.posts;
+    return posts;
+  } catch (err) {
+    console.error(err);
+  }
 }
 export async function deletePost() {
-    const options = {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-        }
-    
-    const response = await fetch(`${BASE_URL}/${COHORT}/posts/POST_ID`, options)
-    const result = await response.json()
-    return result.data
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await fetch(`${BASE_URL}/${COHORT}/posts/POST_ID`, options);
+  const result = await response.json();
+  return result.data;
 }
 export async function createUser(username, password) {
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        }, body: JSON.stringify({
-            user: {
-                username,
-                password
-            }
-        })
-    }
-    const response = await fetch(`${BASE_URL}/${COHORT}/users/register`, options)
-    const result = await response.json()
-    return result.data
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user: {
+        username,
+        password,
+      },
+    }),
+  };
+  const response = await fetch(`${BASE_URL}/${COHORT}/users/register`, options);
+  const result = await response.json();
+  return result.data;
 }
-
-
 
 export async function updatePost() {
-    try {
-        const token = localStorage.getItem("token")
-        const response = await fetch(`${BASE_URL}/${COHORT}/posts/POST_ID`, {
-        method: "PATCH",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+  try {
+    const token = localStorage.getItem("token");
+    const response = await fetch(`${BASE_URL}/${COHORT}/posts/POST_ID`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: {
+          title,
+          description,
+          price,
+          location,
+          willDeliver: true,
         },
-        body: JSON.stringify({
-            post: {
-                title,
-                description,
-                price,
-                location,
-                willDeliver: true
-            }
-        })
-    })
-        const data = await response.json()
-    } catch (error) {
-        console.log(error)
-    }
+      }),
+    });
+    const data = await response.json();
+  } catch (error) {
+    console.log(error);
+  }
 }
-
-
